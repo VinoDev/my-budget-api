@@ -5,5 +5,9 @@
     <RootNamespace>my_budget_api</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.14.0" />
+  </ItemGroup>
+
 
 </Project>
