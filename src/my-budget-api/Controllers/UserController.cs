@@ -25,10 +25,10 @@ namespace my_budget_api.Controllers
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new User
             {
-                id = rng.Next(1, 100),
-                name = "Nameless",
-                email = "test@test.com",
-                password = "pa$$w0rd",
+                Id = rng.Next(1, 100),
+                Name = "Nameless",
+                Email = "test@test.com",
+                Password = "pa$$w0rd",
             })
             .ToArray();
         }
