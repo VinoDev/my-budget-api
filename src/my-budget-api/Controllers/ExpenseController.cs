@@ -70,15 +70,31 @@ namespace my_budget_api.Controllers
             return Ok();
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public async Task<IActionResult> Put(string id, [FromBody] Expense expense)
         {
             var response = await _documentClient.ReplaceDocumentAsync(
                 UriFactory.CreateDocumentUri(databaseId, collectionId, id),
                 expense
             );
-
             return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(string id)
+        {
+            try
+            {
+                await _documentClient.DeleteDocumentAsync(
+                    UriFactory.CreateDocumentUri(databaseId, collectionId, id)
+                );
+                return Ok();
+
+            }
+            catch
+            {
+                return NoContent();
+            }
         }
     }
 }
